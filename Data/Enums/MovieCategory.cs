@@ -2,9 +2,11 @@
 {
     public enum MovieCategory
     {
-        Actions = 1,
+        Action = 1,
         Comedy,
         Drama,
-        Documentary
+        Documentary,
+        Cartoon,
+        Horror
     }
 }
