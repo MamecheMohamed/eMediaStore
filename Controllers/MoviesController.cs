@@ -13,7 +13,7 @@ namespace eMediaStore.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var moviesdata = await _context.Movies.ToListAsync();
+            var moviesdata = await _context.Movies.Include(n=>n.Cinema).OrderBy(n=>n.Name).ToListAsync();
             return View(moviesdata);
         }
     }
