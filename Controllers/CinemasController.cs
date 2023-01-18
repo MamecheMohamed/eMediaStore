@@ -13,7 +13,7 @@ namespace eMediaStore.Controllers
         public IActionResult Index()
         {
             var cinemasdata = _context.Cinemas.ToList();
-            return View();
+            return View(cinemasdata);
         }
     }
 }
