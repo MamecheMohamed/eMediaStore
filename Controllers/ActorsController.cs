@@ -1,18 +1,19 @@
 ﻿using eMediaStore.Data;
+using eMediaStore.Data.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eMediaStore.Controllers
 {
     public class ActorsController : Controller
     {
-        private readonly AppDbContext _context;
-        public ActorsController(AppDbContext context)
+        private readonly IActorsService _service;
+        public ActorsController(IActorsService service)
         {
-            _context = context;
+            _service = service;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var data=_context.Actors.ToList();
+            var data=await _service.getAll();
             return View(data);
         }
     }
