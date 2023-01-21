@@ -1,5 +1,6 @@
 ﻿using eMediaStore.Data;
 using eMediaStore.Data.Services;
+using eMediaStore.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eMediaStore.Controllers
@@ -15,6 +16,23 @@ namespace eMediaStore.Controllers
         {
             var data=await _service.getAll();
             return View(data);
+        }
+
+        //GET : Actors/Create
+        public IActionResult Create()
+        {
+            return View();
+
+        }
+        [HttpPost]
+        public IActionResult Create ([Bind("FullName,ProfilePicUrl,Biography")]Actor actor)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(actor);
+            }
+            _service.Add(actor);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
