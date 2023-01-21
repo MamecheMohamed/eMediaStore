@@ -22,10 +22,10 @@ namespace eMediaStore.Controllers
         public IActionResult Create()
         {
             return View();
-
         }
+
         [HttpPost]
-        public IActionResult Create ([Bind("FullName,ProfilePicUrl,Biography")]Actor actor)
+        public async Task<IActionResult> Create([Bind("FullName,ProfilePicUrl,Biography")] Actor actor)
         {
             if (!ModelState.IsValid)
             {
