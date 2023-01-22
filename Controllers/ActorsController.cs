@@ -13,17 +13,16 @@ namespace eMediaStore.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var data=await _service.getAll();
+            var data=await _service.getAllAsync();
             return View(data);
         }
 
         //GET : Actors/Create
-        [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
-
+        
         [HttpPost]
         public async Task<IActionResult> Create([Bind("FullName,ProfilePicUrl,Biography")] Actor actor)
         {
@@ -31,8 +30,15 @@ namespace eMediaStore.Controllers
             {
                 return View(actor);
             }
-            _service.Add(actor);
+            await _service.AddAsync(actor);
             return RedirectToAction(nameof(Index));
+        }
+        //GET : Actors/Details/1
+        public async Task<IActionResult> Details(int id)
+        {
+            var actordetails= await _service.GetByIdAsync(id);
+            if (actordetails == null) return View("Empty");
+            return View(actordetails);
         }
     }
 }
