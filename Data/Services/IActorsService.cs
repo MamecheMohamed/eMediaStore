@@ -7,7 +7,7 @@ namespace eMediaStore.Data.Services
         Task<IEnumerable<Actor>> getAllAsync();
         Task<Actor> GetByIdAsync(int id);
         Task AddAsync(Actor actor);
-        void Delete(Actor actor);
+        Task DeleteAsync(int id);
         Task<Actor> UpdateAsync(int id, Actor newactor);
 
 

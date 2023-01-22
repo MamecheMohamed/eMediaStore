@@ -53,11 +53,29 @@ namespace eMediaStore.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(int id,[Bind("ActorId,FullName,ProfilePicUrl,Biography")] Actor actor)
         {
+            actor.ActorId = id;
             if (!ModelState.IsValid)
             {
                 return View(actor);
             }
             await _service.UpdateAsync(id,actor);
+            return RedirectToAction(nameof(Index));
+        }
+
+        //GET : Actors/Delete/1
+        public async Task<IActionResult> Delete(int id)
+        {
+            var actordetails = await _service.GetByIdAsync(id);
+            if (actordetails == null) return View("Not Found");
+            return View(actordetails);
+        }
+
+        [HttpPost,ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var actordetails = await _service.GetByIdAsync(id);
+            if (actordetails == null) return View("Not Found");
+            await _service.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
     }

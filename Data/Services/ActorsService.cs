@@ -1,5 +1,6 @@
 ﻿using eMediaStore.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.CompilerServices;
 
 namespace eMediaStore.Data.Services
 {
@@ -17,9 +18,11 @@ namespace eMediaStore.Data.Services
             await _context.SaveChangesAsync();
         }
 
-        public void Delete(Actor actor)
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var result = await _context.Actors.FirstOrDefaultAsync(n => n.ActorId == id);
+            _context.Actors.Remove(result);
+            await _context.SaveChangesAsync();
         }
 
         public async  Task<IEnumerable<Actor>> getAllAsync()
