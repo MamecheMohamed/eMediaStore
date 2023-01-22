@@ -1,5 +1,4 @@
-﻿using eMediaStore.Data;
-using eMediaStore.Data.Services;
+﻿using eMediaStore.Data.Services;
 using eMediaStore.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,6 +18,7 @@ namespace eMediaStore.Controllers
         }
 
         //GET : Actors/Create
+        [HttpGet]
         public IActionResult Create()
         {
             return View();

@@ -8,7 +8,7 @@ namespace eMediaStore.Models
         public int ActorId { get; set; }
 
         [Display(Name ="Profile Picture URL")]
-        [Required(ErrorMessage ="Profile Picture is required")]
+        [Required(ErrorMessage = "Profile Picture is required")]
         public string ProfilePicUrl { get; set; }
 
         [Display(Name = "Full Name")]
@@ -19,7 +19,6 @@ namespace eMediaStore.Models
         [Display(Name = "Biography")]
         [Required(ErrorMessage = "Biography is required")]
         public string Biography { get; set; }
-
-        public List<Actors_Movies> Actors_Movies { get; set; }
+        public List<Actors_Movies>? Actors_Movies { get; set; }
     }
 }
