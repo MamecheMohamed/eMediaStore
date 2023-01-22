@@ -37,8 +37,28 @@ namespace eMediaStore.Controllers
         public async Task<IActionResult> Details(int id)
         {
             var actordetails= await _service.GetByIdAsync(id);
-            if (actordetails == null) return View("Empty");
+            if (actordetails == null) return View("Not Found");
             return View(actordetails);
+        }
+
+
+        //GET : Actors/Edit/1
+        public async Task<IActionResult> Edit(int id)
+        {
+            var actordetails = await _service.GetByIdAsync(id);
+            if (actordetails == null) return View("Not Found");
+            return View(actordetails);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id,[Bind("ActorId,FullName,ProfilePicUrl,Biography")] Actor actor)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(actor);
+            }
+            await _service.UpdateAsync(id,actor);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

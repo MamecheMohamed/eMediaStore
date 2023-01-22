@@ -34,9 +34,11 @@ namespace eMediaStore.Data.Services
             return result;
         }
 
-        public Actor Update(int id, Actor newactor)
+        public async Task<Actor> UpdateAsync(int id, Actor newactor)
         {
-            throw new NotImplementedException();
+            _context.Update(newactor);
+            await _context.SaveChangesAsync();
+            return newactor;
         }
     }
 }

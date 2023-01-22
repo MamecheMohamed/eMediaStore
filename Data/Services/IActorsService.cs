@@ -8,7 +8,7 @@ namespace eMediaStore.Data.Services
         Task<Actor> GetByIdAsync(int id);
         Task AddAsync(Actor actor);
         void Delete(Actor actor);
-        Actor Update(int id, Actor newactor);
+        Task<Actor> UpdateAsync(int id, Actor newactor);
 
 
     }
