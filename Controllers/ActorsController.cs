@@ -37,7 +37,7 @@ namespace eMediaStore.Controllers
         public async Task<IActionResult> Details(int id)
         {
             var actordetails= await _service.GetByIdAsync(id);
-            if (actordetails == null) return View("Not Found");
+            if (actordetails == null) return View("NotFound");
             return View(actordetails);
         }
 
@@ -46,7 +46,7 @@ namespace eMediaStore.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             var actordetails = await _service.GetByIdAsync(id);
-            if (actordetails == null) return View("Not Found");
+            if (actordetails == null) return View("NotFound");
             return View(actordetails);
         }
 
@@ -66,7 +66,7 @@ namespace eMediaStore.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             var actordetails = await _service.GetByIdAsync(id);
-            if (actordetails == null) return View("Not Found");
+            if (actordetails == null) return View("NotFound");
             return View(actordetails);
         }
 
@@ -74,7 +74,7 @@ namespace eMediaStore.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var actordetails = await _service.GetByIdAsync(id);
-            if (actordetails == null) return View("Not Found");
+            if (actordetails == null) return View("NotFound");
             await _service.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
