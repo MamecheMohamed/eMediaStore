@@ -11,7 +11,11 @@ namespace eMediaStore.Data.Base
         {
             _context = context;
         }
-        public async Task AddAsync(T entity) => await _context.Set<T>().AddAsync(entity);
+        public async Task AddAsync(T entity)
+        {
+            _context.Set<T>().AddAsync(entity);
+            await _context.SaveChangesAsync();
+        }  
 
         public async Task DeleteAsync(int id)
         {
@@ -24,8 +28,6 @@ namespace eMediaStore.Data.Base
 
         public async Task<IEnumerable<T>> getAllAsync() => await _context.Set<T>().ToListAsync();
          
-        
-
         public async Task<T> GetByIdAsync(int id) => await _context.Set<T>().FirstOrDefaultAsync(n => n.Id == id);
 
         public async Task UpdateAsync(int id, T entity)

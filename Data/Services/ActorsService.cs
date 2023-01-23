@@ -1,12 +1,15 @@
-﻿using eMediaStore.Models;
+﻿using eMediaStore.Data.Base;
+using eMediaStore.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Runtime.CompilerServices;
 
 namespace eMediaStore.Data.Services
 {
-    public class ActorsService : IActorsService
+    public class ActorsService : EntityBaseRepository<Actor>, IActorsService
     {
-        private readonly AppDbContext _context;
+        public ActorsService(AppDbContext context) : base(context) { }
+
+        /*private readonly AppDbContext _context;
         public ActorsService(AppDbContext context)
         {
             _context = context;
@@ -43,5 +46,6 @@ namespace eMediaStore.Data.Services
             await _context.SaveChangesAsync();
             return newactor;
         }
+    }*/
     }
 }

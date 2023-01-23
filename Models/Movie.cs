@@ -7,7 +7,7 @@ namespace eMediaStore.Models
     public class Movie
     {
         [Key]
-        public int MovieId { get; set; }
+        public int Id { get; set; }
 
         [Display(Name = "Name")]
         public string Name { get; set; }

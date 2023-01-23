@@ -1,11 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using eMediaStore.Data.Base;
+using System.ComponentModel.DataAnnotations;
 
 namespace eMediaStore.Models
 {
-    public class Actor 
+    public class Actor :IEntityBase
     {
         [Key]
-        public int ActorId { get; set; }
+        public int Id { get; set; }
 
         [Display(Name ="Profile Picture URL")]
         [Required(ErrorMessage = "Profile Picture is required")]

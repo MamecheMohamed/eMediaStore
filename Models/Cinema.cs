@@ -5,7 +5,7 @@ namespace eMediaStore.Models
     public class Cinema
     {
         [Key]
-        public int CinemaId { get; set; }
+        public int Id { get; set; }
 
         [Display(Name="Logo")]
         public string logo { get; set; }

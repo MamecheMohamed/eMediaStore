@@ -5,7 +5,7 @@ namespace eMediaStore.Models
     public class Producer
     {
         [Key]
-        public int ProducerId { get; set; }
+        public int Id { get; set; }
         [Display(Name = "Profile Picture")]
         public string ProfilePicUrl { get; set; }
 

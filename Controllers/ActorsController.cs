@@ -53,7 +53,7 @@ namespace eMediaStore.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(int id,[Bind("ActorId,FullName,ProfilePicUrl,Biography")] Actor actor)
         {
-            actor.ActorId = id;
+            actor.Id = id;
             if (!ModelState.IsValid)
             {
                 return View(actor);
