@@ -62,7 +62,7 @@ namespace eMediaStore.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        //GET : Actors/Delete/1
+        //GET : Cinemas/Delete/1
         public async Task<IActionResult> Delete(int id)
         {
             var cinemadetails = await _service.GetByIdAsync(id);
