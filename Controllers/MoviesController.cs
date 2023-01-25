@@ -17,7 +17,6 @@ namespace eMediaStore.Controllers
         public async Task<IActionResult> Index()
         {
             var moviesdata = await _service.GetAllAsync(n=>n.Cinema);
-            //var moviesdata = await _service.getAllAsync();
             return View(moviesdata);
         }
 
