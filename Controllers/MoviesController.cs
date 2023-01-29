@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace eMediaStore.Controllers
 {
+    [Authorize]
     public class MoviesController : Controller
     {
         private readonly IMoviesService _service;
@@ -15,6 +16,7 @@ namespace eMediaStore.Controllers
         {
             _service = service;
         }
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var moviesdata = await _service.GetAllAsync(n=>n.Cinema);
@@ -67,6 +69,7 @@ namespace eMediaStore.Controllers
             return View("Index", allMovies);
         }
 
+       
         //GET: Movies/Details/1
         public async Task<IActionResult> Details(int id)
         {
