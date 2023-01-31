@@ -23,7 +23,7 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Movies" asp-action="Index"><i class="badge-info bi-film"></i>Movies</a>
+                            <a class="nav-link text-dark" asp-controller="Movies" asp-action="Index"><i class="badge-info bi-film"></i> Movies</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
@@ -36,6 +36,9 @@
                                 <a class="dropdown-item" asp-controller="Producers" asp-action="Index"><i class="bi bi-headset"></i> Producers</a>
                                 <a class="dropdown-item" asp-controller="Actors" asp-action="Index"><i class="bi bi-person-square"></i> Actors</a>
                             </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Admin" asp-action="ListAllRoles"><i class="bi bi-person-check"></i> Roles</a>
                         </li>
                     </ul>
                     <form class="form-inline" asp-controller="Movies" asp-action="Filter">
