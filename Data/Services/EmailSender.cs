@@ -8,8 +8,9 @@ namespace eMediaStore.Data.Services
     {
         public async Task SendEmailAsync(string email, string subject, string htmlMessage)
         {
-            var fromEmail = "*****";
-            var fromPassword = "*****";
+            var fromEmail = "mohamedo731@gmail.com";
+            //var fromPassword = "gjuqgrqzmcczgwcj";
+            var fromPassword = "****";
 
             MailMessage message = new();
             message.From = new MailAddress(fromEmail);
