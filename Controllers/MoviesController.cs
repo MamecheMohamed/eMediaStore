@@ -8,11 +8,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace eMediaStore.Controllers
 {
-    [Authorize]
+    [Authorize (Roles ="Admin")]
     public class MoviesController : Controller
     {
         private readonly IMoviesService _service;
-        public MoviesController(IMoviesService service)
+
+        public MoviesController(IMoviesService service,ICinemasService service2)
         {
             _service = service;
         }
@@ -52,6 +53,7 @@ namespace eMediaStore.Controllers
             await _service.AddNewMovieAsync(movie);
             return RedirectToAction(nameof(Index));
         }
+        [AllowAnonymous]
 
         public async Task<IActionResult> Filter(string searchString)
         {
@@ -69,15 +71,13 @@ namespace eMediaStore.Controllers
             return View("Index", allMovies);
         }
 
-       
+        [AllowAnonymous]
         //GET: Movies/Details/1
         public async Task<IActionResult> Details(int id)
         {
             var movieDetail = await _service.GetMovieByIdAsync(id);
             return View(movieDetail);
         }
-
-
 
         //GET: Movies/Edit/1
         public async Task<IActionResult> Edit(int id)
