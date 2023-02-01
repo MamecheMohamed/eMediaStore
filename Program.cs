@@ -14,7 +14,6 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectio
 
 builder.Services.AddDefaultIdentity<ApplicationUser>().AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>();
-
 builder.Services.AddScoped<IActorsService, ActorsService>();
 builder.Services.AddScoped<IMoviesService, MoviesService>();
 builder.Services.AddScoped<IProducersService, ProducersService>();
