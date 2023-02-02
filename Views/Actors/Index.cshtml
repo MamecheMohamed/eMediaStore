@@ -3,11 +3,7 @@
 @{
     ViewData["Title"] = "List of Actors";
 }
-
-<div class="row">
-    <div class="col-md-8 offset-md-2">
-
-        <table class="table">
+<table class="table col-3">
             <thead>
                 <tr>
                     <th>@Html.DisplayNameFor(model=>model.ProfilePicUrl)</th>
@@ -39,9 +35,7 @@
             </tbody>
                 
         </table>
-    </div>
 
-</div>
 <div class="text-white" style="position:fixed; right:25px ;bottom:25px;">
-    <a asp-controller="Actors"  asp-action="Create" class="btn btn-success" ><i class="bi bi-plus-circle"></i>Add new</a>
+    <a asp-controller="Actors" asp-action="Create" class="btn btn-primary float-right movie-btn"><i class="bi bi-plus-circle"></i>Add new</a>
 </div>

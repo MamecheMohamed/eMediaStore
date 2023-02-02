@@ -13,7 +13,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary border-bottom box-shadow mb-3" style="background-color: #e3f2fd;">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Movies" asp-action="Index">eMediaStore</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -28,7 +28,7 @@
                         @if (User.IsInRole("Admin"))
                         {
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                                     <i class="bi bi-gear"></i> Management
                                 </a>
@@ -49,7 +49,7 @@
                     <form class="form-inline" asp-controller="Movies" asp-action="Filter">
                         <div class="input-group">
                             <input class="form-control mr-sm-2" name="searchString" type="text" placeholder="Search for a movie..." aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
+                            <button class="btn btn-primary float-right movie-btn" type="submit"><i class="bi bi-search"></i></button>
                         </div>
                     </form>
                     <partial name="_LoginPartial" />
