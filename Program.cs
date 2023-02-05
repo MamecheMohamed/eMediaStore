@@ -1,4 +1,5 @@
 using eMediaStore.Data;
+using eMediaStore.Data.Cart;
 using eMediaStore.Data.Services;
 using eMediaStore.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -23,11 +24,16 @@ builder.Services.AddScoped<IActorsService, ActorsService>();
 builder.Services.AddScoped<IMoviesService, MoviesService>();
 builder.Services.AddScoped<IProducersService, ProducersService>();
 builder.Services.AddScoped<ICinemasService, CinemasService>();
-//Scoped lifetime services are created once per request.
+builder.Services.AddScoped<IOrderService, OrderService>();
 
-//builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 //Singleton lifetime services are created the first time they are requested
 //(or when ConfigureServices is run if you specify an instance there) and then every subsequent request will use the same instance.
+
+builder.Services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
+//Scoped lifetime services are created once per request.
+
+
 
 builder.Services.AddDistributedMemoryCache();
 
@@ -67,5 +73,6 @@ app.MapControllerRoute(
 app.MapRazorPages();
 //Seed database
 AppDbInitializer.Seed(app);
+
 
 app.Run();

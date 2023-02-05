@@ -15,7 +15,7 @@ namespace eMediaStore.Models
 
         [Display (Name="Image")]
         public string ImageUrl { get; set; }
-        public string Price { get; set; }
+        public double Price { get; set; }
 
         [Display(Name = "Description")]
         public string Description { get; set; }

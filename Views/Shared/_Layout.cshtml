@@ -52,6 +52,9 @@
                             <button class="btn btn-primary float-right movie-btn" type="submit"><i class="bi bi-search"></i></button>
                         </div>
                     </form>
+                    <ul class="navbar-nav">
+                        @await Component.InvokeAsync("ShoppingCartSummary")
+                    </ul>
                     <partial name="_LoginPartial" />
                 </div>
             </div>

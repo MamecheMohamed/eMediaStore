@@ -13,15 +13,16 @@
                 <div class="card-body">
                     <h5 class="mb-3">
                         @item.Name
-                        <span class="card-text">@item.Price $</span>
+                    
 
                     </h5>
                 </div>
                 <div class="card-body">
-                    <a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@item.Id" class="btn btn-primary float-right movie-btn"><i class="fa-solid fa-cart-plus"></i></a>
+                    <span class="card-text">@item.Price.ToString("c") $</span>
+                    <a asp-controller="Order" asp-action="AddItemToShoppingCart" asp-route-id="@item.Id" class="btn btn-primary fa-pull-right movie-btn"><i class="fa-solid fa-cart-plus"></i></a>
                     @if (User.IsInRole("Admin"))
                     {
-                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary float-right movie-btn"> <i class=" bi bi-pencil-square"></i></a>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary fa-pull-right movie-btn"> <i class=" bi bi-pencil-square"></i></a>
                     }
                 </div>
 

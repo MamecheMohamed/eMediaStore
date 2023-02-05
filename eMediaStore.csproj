@@ -9,7 +9,6 @@
   <ItemGroup>
     <PackageReference Include="JavaScriptEngineSwitcher.V8" Version="3.20.10" />
     <PackageReference Include="JavaScriptEngineSwitcher.V8.Native.win-x64" Version="3.20.10" />
-    <PackageReference Include="Microsoft.AspNet.Identity.EntityFramework" Version="2.2.3" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.13" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.13" />
